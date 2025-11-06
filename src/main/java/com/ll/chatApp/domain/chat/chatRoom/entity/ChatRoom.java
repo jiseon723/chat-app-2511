@@ -17,6 +17,8 @@ import java.util.List;
 @SuperBuilder
 @ToString(callSuper = true)
 public class ChatRoom extends BaseEntity {
+    private String name;
+
     @OneToMany
     public List<ChatMessage> chatMessages;
 }
