@@ -1,6 +1,7 @@
 package com.ll.chatApp.domain.article.article.service;
 
 import com.ll.chatApp.domain.article.article.entity.Article;
+import com.ll.chatApp.domain.member.member.entity.Member;
 import com.ll.chatApp.global.rsData.RsData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,5 +26,20 @@ public class ArticleServiceTest {
         Article article = writeRs.getData();
 
         assertThat(article.getId()).isGreaterThan(0L);
+    }
+
+    @DisplayName(("1번 글 가져오기"))
+    @Test
+    void t2() {
+        Article article = articleService.findById(1L).get();
+        assertThat(article.getTitle()).isEqualTo("제목1");
+    }
+
+    @DisplayName(("1번 글 작성자의 userName은 user1이다."))
+    @Test
+    void t3() {
+        Article article = articleService.findById(1L).get();
+        Member author = article.getAuthor();
+        assertThat(author.getUserName()).isEqualTo("user1");
     }
 }
