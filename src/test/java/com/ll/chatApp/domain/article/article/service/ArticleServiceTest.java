@@ -42,4 +42,14 @@ public class ArticleServiceTest {
         Member author = article.getAuthor();
         assertThat(author.getUserName()).isEqualTo("user1");
     }
+
+    @DisplayName(("1번 글의 제목을 수정한다."))
+    @Test
+    void t4() {
+        Article article = articleService.findById(1L).get();
+        articleService.modify(article, "수정된 제목", "수정된 내용");
+        Article article1 = articleService.findById(1L).get();
+
+        assertThat(article1.getTitle()).isEqualTo("수정된 제목");;
+    }
 }

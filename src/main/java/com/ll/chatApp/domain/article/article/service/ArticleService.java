@@ -29,4 +29,11 @@ public class ArticleService {
     public Optional<Article> findById(long id) {
         return articleRepository.findById(id);
     }
+
+    public void modify(Article article, String title, String content) {
+        article.setTitle(title);
+        article.setContent(content);
+
+        articleRepository.save(article);
+    }
 }
