@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Getter
 @Setter
@@ -17,8 +19,8 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class ArticleComment extends BaseEntity {
     private String body;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     private Article article;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     private Member author;
 }

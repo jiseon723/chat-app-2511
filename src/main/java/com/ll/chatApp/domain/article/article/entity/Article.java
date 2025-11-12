@@ -25,10 +25,10 @@ import static jakarta.persistence.FetchType.LAZY;
 public class Article extends BaseEntity {
     String title;
     String content;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     private Member author;
 
-    @OneToMany(fetch = LAZY, mappedBy = "article", cascade = ALL)
+    @OneToMany(mappedBy = "article", cascade = ALL, orphanRemoval = true) // orphanRemoval = true: 부모없는 자식 엔티티를 자동 삭제
     @Builder.Default
     private List<ArticleComment> comments = new ArrayList<>();
 
