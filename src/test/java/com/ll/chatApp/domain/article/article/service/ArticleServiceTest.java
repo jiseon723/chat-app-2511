@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
@@ -58,7 +60,7 @@ public class ArticleServiceTest {
         assertThat(article1.getTitle()).isEqualTo("수정된 제목");;
     }
 
-    @DisplayName(("2번 글의 댓글을 추가한다."))
+    @DisplayName(("1번 글의 댓글을 추가한다."))
     @Test
     void t5() {
         Member member1 = memberService.findById(1L).get();
@@ -85,5 +87,15 @@ public class ArticleServiceTest {
         ArticleComment lastComment = article.getComments().getLast();
 
         article.removeComment(lastComment);
+    }
+
+    @DisplayName("게시물 별 댓글 수 출력")
+    @Test
+    void t8() {
+        List<Article> articles = articleService.findAll();
+        articles.forEach(article -> {
+            System.out.println("게시물 번호: " + article.getId());
+            System.out.println("댓글 수: " + article.getComments().size());
+        });
     }
 }

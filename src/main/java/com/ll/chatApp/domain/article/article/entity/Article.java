@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Getter
@@ -27,7 +28,7 @@ public class Article extends BaseEntity {
     @ManyToOne
     private Member author;
 
-    @OneToMany(mappedBy = "article", cascade = ALL)
+    @OneToMany(fetch = LAZY, mappedBy = "article", cascade = ALL)
     @Builder.Default
     private List<ArticleComment> comments = new ArrayList<>();
 
