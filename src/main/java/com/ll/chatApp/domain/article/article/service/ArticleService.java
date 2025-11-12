@@ -2,6 +2,7 @@ package com.ll.chatApp.domain.article.article.service;
 
 import com.ll.chatApp.domain.article.article.entity.Article;
 import com.ll.chatApp.domain.article.article.repository.ArticleRepository;
+import com.ll.chatApp.domain.article.articleCommemt.entity.ArticleComment;
 import com.ll.chatApp.domain.member.member.entity.Member;
 import com.ll.chatApp.global.rsData.RsData;
 import lombok.RequiredArgsConstructor;
@@ -40,5 +41,9 @@ public class ArticleService {
 
         //articleRepository.save(article);
     // 따로 저장을 안해도 Transactional 실행이 끝날 때 쯤 정보가 변경되어있으면 자동으로 DB에 반영
+    }
+
+    public void modifyComment(ArticleComment comment, String commentBody) {
+        comment.setBody(commentBody);
     }
 }
