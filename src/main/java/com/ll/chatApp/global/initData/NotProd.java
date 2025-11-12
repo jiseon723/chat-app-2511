@@ -24,7 +24,7 @@ public class NotProd {
             ChatRoom chatRoom2 = chatRoomService.create("room2");
             ChatRoom chatRoom3 = chatRoomService.create("room3");
 
-            IntStream.rangeClosed(1, 100).forEach(num -> {
+            IntStream.rangeClosed(1, 10).forEach(num -> {
                 chatMessageService.create(chatRoom1, "홍길동", "채팅메세지" + num);
             });
 
