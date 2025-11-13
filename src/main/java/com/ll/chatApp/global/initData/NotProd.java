@@ -66,9 +66,9 @@ public class NotProd {
                 article3.addComment(member1, "댓글12");
 
                 article1.addTag("자바");
-                article1.addTag("스프링");
-                article2.addTags("프레임 워크", "스프링부트");
-                article2.addTags("JPA", "자바");
+                article1.addTag("백엔드");
+                article2.addTags("프레임워크", "스프링부트");
+                article2.addTags("자바", "스프링부트");
             }
         };
     }
