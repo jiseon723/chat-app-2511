@@ -2,6 +2,7 @@ package com.ll.chatApp.domain.article.article.service;
 
 import com.ll.chatApp.domain.article.article.entity.Article;
 import com.ll.chatApp.domain.article.articleCommemt.entity.ArticleComment;
+import com.ll.chatApp.domain.article.articleCommemt.service.ArticleCommentService;
 import com.ll.chatApp.domain.member.member.entity.Member;
 import com.ll.chatApp.domain.member.member.service.MemberService;
 import com.ll.chatApp.global.rsData.RsData;
@@ -25,6 +26,9 @@ public class ArticleServiceTest {
 
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private ArticleCommentService articleCommentService;
 
     @DisplayName(("글 쓰기"))
     @Test
@@ -115,5 +119,13 @@ public class ArticleServiceTest {
         Article article1 = articleService.findById(1L).get();
 
         System.out.println(article1);
+    }
+
+    @DisplayName("1번 회원이 작성한 댓글들")
+    @Test
+    void t11() {
+        List<ArticleComment> articleComments = articleCommentService.findByAuthorId(1L);
+
+        assertThat(articleComments.size()).isGreaterThan(0);
     }
 }
