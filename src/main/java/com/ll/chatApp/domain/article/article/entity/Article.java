@@ -51,10 +51,10 @@ public class Article extends BaseEntity {
     @Builder.Default
     private List<ArticleTag> tags = new ArrayList<>();
 
-    public void addTag(String content) {
+    public void addTag(String tagContent) {
         ArticleTag tag = ArticleTag.builder()
                 .article(this)
-                .content(content)
+                .content(tagContent)
                 .build();
 
         tags.add(tag);
