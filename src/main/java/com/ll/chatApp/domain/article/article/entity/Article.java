@@ -59,4 +59,10 @@ public class Article extends BaseEntity {
 
         tags.add(tag);
     }
+
+    public void addTags(String... tagContents) {
+        for(String tagContent : tagContents) {
+            addTag(tagContent);
+        }
+    }
 }
