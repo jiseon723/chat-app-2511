@@ -13,15 +13,15 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    public RsData<Member> join(String author, String password) {
+    public RsData<Member> join(String username, String password) {
         Member member = Member.builder()
-                .author(author)
+                .username(username)
                 .password(password)
                 .build();
 
         memberRepository.save(member);
 
-        return RsData.of("200", "%s님 가입을 환영합니다.".formatted(author), member);
+        return RsData.of("200", "%s님 가입을 환영합니다.".formatted(username), member);
     }
 
     public Optional<Member> findById(Long id) {

@@ -21,7 +21,7 @@ public class MemberServiceTest {
     @DisplayName(("회원가입"))
     @Test
     void t1() {
-        RsData<Member> joinRs = memberService.join("usernew", "1234");
+        RsData<Member> joinRs = memberService.join("user1", "1234");
         Member member = joinRs.getData();
         assertThat(member.getId()).isGreaterThan(0L);
     }
