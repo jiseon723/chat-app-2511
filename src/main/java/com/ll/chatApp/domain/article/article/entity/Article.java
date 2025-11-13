@@ -32,6 +32,7 @@ public class Article extends BaseEntity {
 
     @OneToMany(mappedBy = "article", cascade = ALL, orphanRemoval = true) // orphanRemoval = true: 부모없는 자식 엔티티를 자동 삭제
     @Builder.Default
+    @ToString.Exclude
     private List<ArticleComment> comments = new ArrayList<>();
 
     public void addComment(Member memberAuthor, String commentBody) {
@@ -50,6 +51,7 @@ public class Article extends BaseEntity {
 
     @OneToMany(mappedBy = "article", cascade = ALL, orphanRemoval = true) // orphanRemoval = true: 부모없는 자식 엔티티를 자동 삭제
     @Builder.Default
+    @ToString.Exclude
     private List<ArticleTag> tags = new ArrayList<>();
 
     public void addTag(String tagContent) {
