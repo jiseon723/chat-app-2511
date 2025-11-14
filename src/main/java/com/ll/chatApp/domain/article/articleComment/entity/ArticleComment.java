@@ -1,4 +1,4 @@
-package com.ll.chatApp.domain.article.articleCommemt.entity;
+package com.ll.chatApp.domain.article.articleComment.entity;
 
 import com.ll.chatApp.domain.article.article.entity.Article;
 import com.ll.chatApp.domain.member.member.entity.Member;

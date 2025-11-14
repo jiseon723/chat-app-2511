@@ -1,6 +1,6 @@
 package com.ll.chatApp.domain.article.article.entity;
 
-import com.ll.chatApp.domain.article.articleCommemt.entity.ArticleComment;
+import com.ll.chatApp.domain.article.articleComment.entity.ArticleComment;
 import com.ll.chatApp.domain.article.articleTag.entity.ArticleTag;
 import com.ll.chatApp.domain.member.member.entity.Member;
 import com.ll.chatApp.global.jpa.BaseEntity;

@@ -2,10 +2,12 @@ package com.ll.chatApp.domain.article.article.service;
 
 import com.ll.chatApp.domain.article.article.entity.Article;
 import com.ll.chatApp.domain.article.article.repository.ArticleRepository;
-import com.ll.chatApp.domain.article.articleCommemt.entity.ArticleComment;
+import com.ll.chatApp.domain.article.articleComment.entity.ArticleComment;
 import com.ll.chatApp.domain.member.member.entity.Member;
 import com.ll.chatApp.global.rsData.RsData;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +28,7 @@ public class ArticleService {
                 .content(content)
                 .build();
 
-        //articleRepository.save(article);
+        articleRepository.save(article);
 
         return RsData.of("200", "글 작성 성공", article);
     }
@@ -50,5 +52,9 @@ public class ArticleService {
 
     public List<Article> findAll() {
         return articleRepository.findAll();
+    }
+
+    public Page<Article> search(Pageable pageable) {
+        return articleRepository.findAll(pageable);
     }
 }

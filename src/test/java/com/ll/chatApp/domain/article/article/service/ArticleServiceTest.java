@@ -1,8 +1,8 @@
 package com.ll.chatApp.domain.article.article.service;
 
 import com.ll.chatApp.domain.article.article.entity.Article;
-import com.ll.chatApp.domain.article.articleCommemt.entity.ArticleComment;
-import com.ll.chatApp.domain.article.articleCommemt.service.ArticleCommentService;
+import com.ll.chatApp.domain.article.articleComment.entity.ArticleComment;
+import com.ll.chatApp.domain.article.articleComment.service.ArticleCommentService;
 import com.ll.chatApp.domain.article.articleTag.entity.ArticleTag;
 import com.ll.chatApp.domain.article.articleTag.service.ArticleTagService;
 import com.ll.chatApp.domain.member.member.entity.Member;
